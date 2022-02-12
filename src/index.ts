@@ -6,11 +6,16 @@ class Server{
 
     constructor(){
        this.app = express();
+       this.config();
+       this.routes();
     }
 
     config(): void{
-        // this.app.set('port', process.env.PORT || 3000 );
         this.app.set('port', process.env.PORT || 3000);
+    }
+    
+    routes(): void{
+
     }
 
     start(): void {
