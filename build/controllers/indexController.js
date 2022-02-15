@@ -7,4 +7,4 @@ class IndexController {
     }
 }
 exports.indexController = new IndexController();
-// export default indexController;
+exports.default = exports.indexController;

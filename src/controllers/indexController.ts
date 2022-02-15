@@ -7,4 +7,4 @@ class IndexController{
     }
 }
 export const indexController = new IndexController();
-// export default indexController;
+export default indexController;

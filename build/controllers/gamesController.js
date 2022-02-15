@@ -10,6 +10,9 @@ class GamesController {
         database_1.default.query('describe games');
         res.json('games');
     }
+    getOne(req, res) {
+        res.json({ text: 'creating a game' });
+    }
     create(req, res) {
         res.json({ text: 'creating a game' });
     }

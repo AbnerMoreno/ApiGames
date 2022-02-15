@@ -7,6 +7,10 @@ class GamesController{
        res.json('games')
     }
 
+    public getOne(req: Request, res: Response){
+        res.json({text:'creating a game'})
+    }
+
     public create(req: Request, res: Response){
         res.json({text:'creating a game'})
     }
