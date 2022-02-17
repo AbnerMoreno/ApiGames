@@ -1,5 +1,6 @@
-import {Request, Response} from 'express';
+import {Request, Response, } from 'express';
 import db from "../database";
+
 class GamesController{
 
     public async list(req: Request, res: Response,): Promise<void>{
@@ -10,12 +11,14 @@ class GamesController{
     public async getOne(req: Request, res: Response): Promise<any>{
         // const list = await db.query('Select id FROM games')
         const {id} = req.params;
-        const games = await db.query('SELECT * FROM games WHERE id = ?', [id]);
+        // const games = await db.query('SELECT * FROM games WHERE id = ?', [id]);
         // console.log(games.length);
         res.json({text:'creating a pymes'+ req.params.id})
     }
 
-    public create(req: Request, res: Response){
+    public async create(req: Request, res: Response): Promise<void>{
+        // await db.query('INSERT INTO games set ?',[req.body]);
+        console.log(req.body);
         res.json({text: 'creating a pymes'});
     }
 

@@ -17,5 +17,5 @@ class GamesRoutes {
         this.router.delete('/:id',gamesController.delete)
     }
 }
-const gamesRoutes = new GamesRoutes();
-export default gamesRoutes.router;
+// const gamesRoutes = new GamesRoutes();
+export default new GamesRoutes().router;
