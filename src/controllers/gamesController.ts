@@ -12,7 +12,7 @@ class GamesController{
     }
 
     public create(req: Request, res: Response){
-        res.json({text:'creating a game'})
+        db.query('INSERT INTO games set ?',[])
     }
 
     public delete(req: Request, res: Response){
