@@ -2,25 +2,29 @@ import {Request, Response} from 'express';
 import db from "../database";
 class GamesController{
 
-    public list(req: Request, res: Response,){
-       db.query('describe games');
-       res.json('games')
+    public async list(req: Request, res: Response,): Promise<void>{
+       const games = await db.query('SELECT * FROM  games');
+       res.json('games in the world');
     }
 
-    public getOne(req: Request, res: Response){
-        res.json({text:'creating a game'+ req.params.id})
+    public async getOne(req: Request, res: Response): Promise<any>{
+        // const list = await db.query('Select id FROM games')
+        const {id} = req.params;
+        const games = await db.query('SELECT * FROM games WHERE id = ?', [id]);
+        // console.log(games.length);
+        res.json({text:'creating a pymes'+ req.params.id})
     }
 
     public create(req: Request, res: Response){
-        db.query('INSERT INTO games set ?',[])
+        res.json({text: 'creating a pymes'});
     }
 
     public delete(req: Request, res: Response){
-        res.json({text:'deleting a game' + req.params.id}) 
+        res.json({text:'deleting a pymes ' + req.params.id}) 
     }
 
     public update(req: Request, res: Response){
-        res.json({text:'updating a game' + req.params.id}) 
+        res.json({text:'updating a pymes: ' + req.params.id}) 
     }
 }
 export const gamesController = new GamesController();
