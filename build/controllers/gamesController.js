@@ -17,24 +17,24 @@ const database_1 = __importDefault(require("../database"));
 class GamesController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const games = yield database_1.default.query('SELECT * FROM  games');
-            res.json('games in the world');
+            const games = database_1.default.query('SELECT * FROM  games');
+            res.json(games);
         });
     }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             // const list = await db.query('Select id FROM games')
-            const { id } = req.params;
+            // const {id} = req.params;
             // const games = await db.query('SELECT * FROM games WHERE id = ?', [id]);
             // console.log(games.length);
-            res.json({ text: 'creating a pymes' + req.params.id });
+            // res.json({text:'creating a pymes'+ req.params.id})
         });
     }
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             // await db.query('INSERT INTO games set ?',[req.body]);
-            console.log(req.body);
-            res.json({ text: 'creating a pymes' });
+            // console.log(req.body);
+            // res.json({text: 'creating a pymes'});
         });
     }
     delete(req, res) {
