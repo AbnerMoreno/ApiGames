@@ -28,7 +28,9 @@ class GamesController{
         res.json({message: 'el juego fue eliminado con exito'})
     }
 
-    public update(req: Request, res: Response){
+    public async update(req: Request, res: Response){
+        const {id} = req.params;
+         await db.query('UPDATE games set ? WHERE id = ?', [req.body, id])
         res.json({text:'updating a pymes: ' + req.params.id}) 
     }
 }
