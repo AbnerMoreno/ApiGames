@@ -22,8 +22,10 @@ class GamesController{
         // res.json({text: 'creating a pymes'});
     }
 
-    public delete(req: Request, res: Response){
-        res.json({text:'deleting a pymes ' + req.params.id}) 
+    public async delete(req: Request, res: Response){
+        const {id} = req.params;
+        await db.query('DELETE * FROM games WHERE id = ?',[id])
+        res.json({message: 'el juego fue eliminado con exito'})
     }
 
     public update(req: Request, res: Response){
